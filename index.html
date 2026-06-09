@@ -5,7 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/movie-finder/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie List</title>
-    <script type="module" crossorigin src="/movie-finder/assets/index-Dq_kW-HE.js"></script>
+    <script type="text/javascript">
+      (function() {
+        if (window.location.pathname.startsWith('/movie-finder/') && !window.location.pathname.includes('.')) {
+          var path = window.location.pathname.substring('/movie-finder'.length);
+          var parts = path.split('/').filter(p => p);
+          if (parts.length > 0 && parts[0] !== 'index.html') {
+            window.history.replaceState({}, document.title, '/movie-finder/?redirect=' + encodeURIComponent(path));
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/movie-finder/assets/index-BAHOORhR.js"></script>
     <link rel="stylesheet" crossorigin href="/movie-finder/assets/index-Dx5c9rfE.css">
   </head>
   <body>
